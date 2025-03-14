@@ -62,6 +62,7 @@ Tips:
 - We recommend to use PNG files with no lossy compression
 - Our method works best on stereo RGB images. However, we have also tested it on gray scale images or IR images and it works well too.
 - For all options and instructions, check by `python scripts/run_demo.py --help`
+- To get point cloud for your own data, you need to specify the intrinsics. In the intrinsic file in args, 1st line is the flattened 1x9 intrinsic matrix, 2nd line is the baseline (distance) between the left and right camera, unit in meters.
 - For high-resolution image (>1000px), you can run with `--hiera 1` to enable hierarchical inference for better performance.
 - For faster inference, you can reduce the input image resolution by e.g. `--scale 0.5`, and reduce refine iterations by e.g. `--valid_iters 16`.
 
