@@ -59,6 +59,7 @@ You can see output point cloud.
 
 Tips:
 - The input left and right images should be **rectified and undistorted**, which means there should not be fisheye kind of lens distortion and the epipolar lines are horizontal between the left/right images. If you obtain images from stereo cameras such as Zed, they usually have [handled this](https://github.com/stereolabs/zed-sdk/blob/3472a79fc635a9cee048e9c3e960cc48348415f0/recording/export/svo/python/svo_export.py#L124) for you.
+- Do not swap left and right image. The left image should really be obtained from the left-side camera (objects will appear righter in the image).
 - We recommend to use PNG files with no lossy compression
 - Our method works best on stereo RGB images. However, we have also tested it on monochrome or IR stereo images (e.g. from RealSense D4XX series) and it works well too.
 - For all options and instructions, check by `python scripts/run_demo.py --help`
@@ -69,10 +70,17 @@ Tips:
 
 
 # ONNX/TensorRT Inference (Experimental)
-To create ONNX models, run:
+To create ONNX models:
+- Make [this change](https://github.com/NVlabs/FoundationStereo/issues/13#issuecomment-2708791825) to replace flash-attention
+
+- Make ONNX:
 ```
 export XFORMERS_DISABLED=1
 python scripts/make_onnx.py --save_path ./output/foundation_stereo.onnx --ckpt_dir ./pretrained_models/23-51-11/model_best_bp2.pth --height 480 --width 640 --valid_iters 22
+```
+- Convert ONNX to TensorRT:
+```
+trtexec --onnx=./output/foundation_stereo.onnx --saveEngine=./output/foundation_stereo.engine --fp16 --verbose
 ```
 
 We have observed 6X speed on the same GPU 3090 with TensorRT FP16. Although how much it speeds up depends on various factors, we recommend trying it out if you care about faster inference.
