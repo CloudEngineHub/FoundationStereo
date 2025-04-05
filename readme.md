@@ -123,6 +123,9 @@ It will produce:
 - Q: How to run with RealSense?<br>
   A: See [this](https://github.com/NVlabs/FoundationStereo/issues/26)
 
+- Q: I have two or multiple RGB cameras, can I run this? <br>
+  A: You can first rectify a pair of images using this [OpenCV function](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#ga617b1685d4059c6040827800e72ad2b6) into stereo image pair (now they don't have relative rotations), then feed into FoundationStereo.
+
 
 # BibTeX
 ```
