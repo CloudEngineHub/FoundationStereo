@@ -1,6 +1,6 @@
 # FoundationStereo: Zero-Shot Stereo Matching
 
-This is the official implementation of our paper accepted by CVPR 2025 (**All strong accept**)
+This is the official implementation of our paper accepted by CVPR 2025 Oral (**All strong accept**)
 
 [[Website]](https://nvlabs.github.io/FoundationStereo/) [[Paper]](https://arxiv.org/abs/2501.09898) [[Video]](https://www.youtube.com/watch?v=R7RgHxEXB3o)
 
