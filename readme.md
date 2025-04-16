@@ -38,10 +38,15 @@ Our method outperforms existing approaches in zero-shot stereo matching tasks ac
 </p>
 
 # Installation
+
+We've tested on Linux with GPU 3090, 4090, A100, V100, Jetson Orin. Other GPUs should also work, but make sure you have enough memory
+
 ```
 conda env create -f environment.yml
 conda activate foundation_stereo
 ```
+
+
 
 # Model Weights
 - Download the foundation model for zero-shot inference on your data from [here](https://drive.google.com/drive/folders/1VhPebc_mMxWKccrv7pdQLTvXYVcLYpsf?usp=sharing). Put the entire folder (e.g. `23-51-11`) under `./pretrained_models/`.
